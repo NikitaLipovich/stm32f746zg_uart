@@ -1,5 +1,3 @@
-//#include "main.h"
-//#include "stm32f7xx.h"                  // Device header
 #include <stdint.h>
 #include <assert.h>
 
