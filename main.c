@@ -285,7 +285,7 @@ uint8_t UART_Read(){
 __attribute__((weak)) void doSomethingForSheduleError();
 
 /*
- * Common logic this function , if error detected reset flag
+ * Common logic this function , if error detected - reset flag
  */
 void UART_Check_Error(){
 	if(USART3->ISR.bits.ORE)
