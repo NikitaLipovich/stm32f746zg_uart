@@ -224,7 +224,7 @@ void GPIO_UART_init(){
 	RCC_AHB1ENR	&= ~GPIOD_EN;
 	RCC_AHB1ENR	|= GPIOD_EN;
 	GPIOD_MODER	|= GPIO_MODER_MODER8_1 | GPIO_MODER_MODER9_1;
-	GPIOD_AFR_1 |= (AF07 << (4 * 8)) | (AF07 << (4 * 9)); // Set alternate function 7 (AF7) for PD8 and PD9
+	GPIOD_AFR_1	|= GPIOD_AFR_1 |= AF07 | (AF07 << 4); // Set alternate function 7 (AF7) for PD8 and PD9
 }
 
 enum stop_bits { _1_STB = 0, _2_STB = 0b10 };
