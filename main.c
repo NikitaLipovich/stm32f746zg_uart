@@ -158,7 +158,7 @@ typedef struct {
     uint32_t MMRQ		: 1;  // Bit 2: Mute mode request
     uint32_t RXFRQ		: 1;  // Bit 3: Receive data flush request
     uint32_t TXFRQ		: 1;  // Bit 4: Transmit data flush request
-    uint32_t Reserved	: 27; // Bits 5-31: Reserved
+    uint32_t Reserved		: 27; // Bits 5-31: Reserved
 } USART_RQR_TypeDef;
 
 typedef union {
@@ -166,9 +166,9 @@ typedef union {
     USART_RQR_TypeDef bits;
 } USART_RQR_Reg;
 
-#define   	__I     volatile const      /*!< Defines 'read only' permissions */
-#define     __O     volatile            /*!< Defines 'write only' permissions */
-#define     __IO    volatile            /*!< Defines 'read / write' permissions */
+#define   __I     volatile const      /*!< Defines 'read only' permissions */
+#define   __O     volatile            /*!< Defines 'write only' permissions */
+#define   __IO    volatile            /*!< Defines 'read / write' permissions */
 
 typedef struct {
     __IO	USART_CR1_Reg CR1; /*!< USART Control register 1,                 Address offset: 0x00 */
@@ -212,7 +212,7 @@ typedef struct {
 #define RCC_APB1ENR_USART3EN_Msk           (0x1UL << RCC_APB1ENR_USART3EN_Pos)  /*!< 0x00040000 */
 #define RCC_APB1ENR_USART3EN               RCC_APB1ENR_USART3EN_Msk
 
-#define SET		0x1
+#define SET	0x1
 #define RESET	0x0
 
 #define GPIOD_EN 0x8
@@ -273,9 +273,9 @@ uint8_t UART_Read(){
 	while (!(USART3->ISR.bits.RXNE) && ( ! ( USART3->ISR.bits.BUSY ))) {;}
 	return	( mode_frame == _SB_8Databit_STB )		? ( USART3->RDR.value ) :
 			( mode_frame == _SB_7Databit_PB_STB )	? ( USART3->RDR.value & 0x7F ):
-			( mode_frame == _SB_9Databit_STB )		? ( USART3->RDR.value ) : // 1 high bit slice ERROR!
+			( mode_frame == _SB_9Databit_STB )	? ( USART3->RDR.value ) : // 1 high bit slice ERROR!
 			( mode_frame == _SB_8Databit_PB_STB )	? ( USART3->RDR.value ) :
-			( mode_frame == _SB_7Databit_STB )		? ( USART3->RDR.value ) :
+			( mode_frame == _SB_7Databit_STB )	? ( USART3->RDR.value ) :
 			( mode_frame == _SB_6Databit_PB_STB )	? ( USART3->RDR.value & 0x3F ) : USART3->RDR.value;
 }
 
