@@ -77,7 +77,7 @@ public:
     uintptr_t addr;
 
     void set_UE(bool enable) {
-        volatile USART_CR1_Bits* bits = reinterpret_cast<volatile USART_CR1_Bits*>(addr);
+        volatile USART_CR1_Bits* bits = reinterpret_cast<volatile USART_CR1_Bits*>(addr); // it can be how private variable it's depends from design
         bits->UE = enable ? 1 : 0;
     }
     
