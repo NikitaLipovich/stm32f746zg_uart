@@ -131,3 +131,5 @@ int main() {
     return 0;
 }
 ```
+Why C++ is better for mcu?
+It has long been possible in C++ to create objects at addresses via placement new. Also when writing allocators or using the std library. Work becomes more flexible.
